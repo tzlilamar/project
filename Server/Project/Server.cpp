@@ -1,5 +1,6 @@
 #include <exception>
 #include "Server.h"
+#include "Helper.h"
 
 static const unsigned short PORT = 8820;
 static const unsigned int IFACE = 0;
@@ -74,9 +75,11 @@ void Server::acceptClient()
 void Server::clientHandler(SOCKET client_socket)
 {
 	std::cout << "hello" << std::endl;
+	std::string str = Helper::getStringPartFromSocket(client_socket, 10);
+	std::cout << str << std::endl;
 }
 
 void Server::handleRecievedMessages()
 {
-	std::cout << "he" << std::endl;
+	//std::cout << "he" << std::endl;
 }
