@@ -28,7 +28,6 @@ public class Hello extends AppCompatActivity {
 
         helloUsername.setText("Hello, " + username);
 
-
         cart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Intent intent = new Intent (getApplicationContext(), Hello.class);

@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.codeshop.SignIn">
+    tools:context="com.example.user.codeshop.SignUp"
+    android:label="Sign Up">
 
     <EditText
-        android:id="@+id/Email_signIn"
+        android:id="@+id/Email_signUp"
         android:layout_width="245dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -25,7 +26,7 @@
         app:layout_constraintVertical_bias="0.223" />
 
     <EditText
-        android:id="@+id/Password_signIn"
+        android:id="@+id/Password_signUp"
         android:layout_width="245dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -39,11 +40,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email_signIn"
+        app:layout_constraintTop_toBottomOf="@+id/Email_signUp"
         app:layout_constraintVertical_bias="0.238" />
 
     <EditText
-        android:id="@+id/Username_signIn"
+        android:id="@+id/Username_signUp"
         android:layout_width="245dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -53,15 +54,15 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Password_signIn"
+        app:layout_constraintBottom_toTopOf="@+id/Password_signUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email_signIn"
+        app:layout_constraintTop_toBottomOf="@+id/Email_signUp"
         app:layout_constraintVertical_bias="0.476" />
 
     <Button
-        android:id="@+id/SignIn_signIn"
+        android:id="@+id/SignUp_signUp"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/Checking_signIn"
+        android:id="@+id/Checking_signUp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -87,5 +88,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignIn_signIn" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_signUp" />
 </android.support.constraint.ConstraintLayout>

@@ -29,19 +29,10 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-
         //Intent intent = getIntent();
         //Bundle extras = intent.getExtras();
         //String username = extras.getString("username");
 
-        /*listView=(ListView)findViewById(R.id.ListView);
-
-        ListAdapter listAdapter=new ListAdapter();
-
-        listView.setAdapter(listAdapter);
-
-        PurchasedButton = (Button)findViewById(R.id.Purchased_button);
-*/
         fillData(); //Ask the server
         boxAdapter = new ListAdapter(this, products);
 
@@ -57,9 +48,8 @@ public class Cart extends AppCompatActivity {
         }
         for (int i = 11; i <= 20; i++)
         {
-            products.add(new Product("Product " + i, 2, 0, false));
+            products.add(new Product("Product " + i, 5, 0, false));
         }
-
     }
 
     public void showResult(View v) {

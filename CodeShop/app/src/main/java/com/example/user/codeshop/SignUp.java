@@ -2,8 +2,6 @@ package com.example.user.codeshop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
@@ -13,30 +11,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class SignIn extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     EditText email;
     EditText username;
     EditText password;
     TextView checking;
-    Button signIn;
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_sign_up);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Sign Up");
         setSupportActionBar(toolbar);
-
         Intent intent = getIntent();
 
-        email = (EditText) findViewById(R.id.Email_signIn);
-        username = (EditText) findViewById(R.id.Username_signIn);
-        password = (EditText) findViewById(R.id.Password_signIn);
-        checking = (TextView) findViewById(R.id.Checking_signIn);
-        signIn = (Button) findViewById(R.id.SignIn_signIn);
+        email = (EditText) findViewById(R.id.Email_signUp);
+        username = (EditText) findViewById(R.id.Username_signUp);
+        password = (EditText) findViewById(R.id.Password_signUp);
+        checking = (TextView) findViewById(R.id.Checking_signUp);
+        signUp = (Button) findViewById(R.id.SignUp_signUp);
 
-        signIn.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Hiding keyboard
                 try

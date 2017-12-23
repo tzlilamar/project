@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -48,7 +47,7 @@ public class ListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if (view == null) {
             view = lInflater.inflate(R.layout.product_in_list, parent, false);
@@ -68,25 +67,29 @@ public class ListAdapter extends BaseAdapter {
         }
 
         spinner=(Spinner) view.findViewById(R.id.Choice_count);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(ctx,android.R.layout.simple_spinner_item,numbers);
+        final ArrayAdapter<String> adapter=new ArrayAdapter<String>(ctx,android.R.layout.simple_spinner_item, numbers);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setSelection(p.purchasedCount-1);
 
+        //When the user clicks on the spinner
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            int rowNumber = position;
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String s = spinner.getItemAtPosition(position).toString();
-/*************************************************/
-                System.out.println("?????????????????????");
+                //String s = spinner.getItemAtPosition(position).toString(); //Getting the value of the spinner
+                String s = position + 1 + ""; //Number of products that the user bought
+                (getProduct((int)rowNumber)).purchasedCount = Integer.parseInt(s); //Update the product
+                // setSelection(position);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
 
+        });
         CheckBox cb = (CheckBox) view.findViewById(R.id.CheckBox);
         cb.setOnCheckedChangeListener(myCheckChangList);
         cb.setTag(position);
@@ -94,12 +97,12 @@ public class ListAdapter extends BaseAdapter {
         return view;
     }
 
-    Product getProduct(int position)
+    Product getProduct(int position) //Getting the product from the current row
     {
         return ((Product) getItem(position));
     }
 
-    ArrayList<Product> getBox()
+    ArrayList<Product> getBox() //Array of the products which the user has marked V in their checkbox
     {
         ArrayList<Product> box = new ArrayList<Product>();
         for (Product p : objects)
@@ -112,8 +115,6 @@ public class ListAdapter extends BaseAdapter {
         return box;
     }
 
-
-
     CompoundButton.OnCheckedChangeListener myCheckChangList = new CompoundButton.OnCheckedChangeListener()
     {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -121,6 +122,4 @@ public class ListAdapter extends BaseAdapter {
 
         }
     };
-
-
 }

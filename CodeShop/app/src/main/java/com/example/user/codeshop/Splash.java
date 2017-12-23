@@ -10,10 +10,12 @@ import android.widget.ImageView;
 public class Splash extends AppCompatActivity {
     ImageView imageView;
 
+    //Splash screen with the logo of the project
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash2);
+        setContentView(R.layout.activity_splash);
 
         imageView = (ImageView) findViewById(R.id.imageView);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_animation);
@@ -25,7 +27,7 @@ public class Splash extends AppCompatActivity {
             public void run(){
                 try
                 {
-                    sleep(3000);
+                    sleep(3000); //For 3 seconds
                 }
                 catch (InterruptedException e)
                 {
