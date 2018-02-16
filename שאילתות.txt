@@ -1,0 +1,41 @@
+קבלת הID של הבית דרך הID של המשתמש:
+select homeId from users where id = 2;
+
+הדפסת רשימת קניות לפי ID של בית:
+select productId, counter from shoppingLists where homeId = 1;
+
+הדפסת שם מוצר בהתאם לID שלו:
+select productName from products where id = 1;
+
+בדיקה אם שם משתמש קיים ברשימת המשתמשים:
+select count(*) from users where userName = "May Bergik";
+
+אם מחזיר אפס - אין משתמש כזה ואפשר להירשם
+
+
+בדיקה אם אימייל קיים ברשימת המשתמשים:
+select count(*) from users where email = "maybergik@gmail.com";
+
+שליחת מידע אישי:
+select userName, email from users where id = 1;
+
+*לוקחת את הID של הבית בהתאם לID של המשתמש ואז:
+select homeName, telephone, homePass from homes where id = 1;
+
+לאחד את המידע
+
+הדפסת כל המשתמשים שנמצאים בתוך בית לפי ID של בית:
+select userName from users where homeId = 1;
+
+
+להמיר את כל מה שהמשתמש מכניס לאותיות קטנות לתוך הדאטה בייס!!
+
+בדיקה של התאמה בין שם משתמש לסיסמה:
+select count(*) from users where id = 1 and password = "pass";
+
+אם מחזיר אפס - אין התאמה
+
+קבלת ID של בית ע"י הסיסמה של הבית:
+select id from homes where homePass = "pass";
+
+אם מחזיר NULL זה אומר שאין בית כזה. אם מחזיר ID מסויים, זה אומר שהבית קיים וגם לפי הID ניתן לזהות אותו.

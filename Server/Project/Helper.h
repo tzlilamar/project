@@ -6,6 +6,19 @@
 
 using namespace std;
 
+enum MessageType
+{
+	MT_CLIENT_SIGN_IN = 200,
+	MT_CLIENT_SIGN_UP = 203,
+	MT_CLIENT_SIGN_OUT = 201,
+	MT_CLIENT_ROOM_REQUEST = 205,
+	MT_CLIENT_USER_ROOM = 207,
+	MT_CLIENT_CHANGE_NAME = 300,
+	MT_CLIENT_CHANGE_PASS = 301,
+	MT_CLIENT_CHANGE_EMAIL = 302
+};
+
+
 class Helper
 {
 public:

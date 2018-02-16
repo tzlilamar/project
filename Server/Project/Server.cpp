@@ -74,12 +74,47 @@ void Server::acceptClient()
 
 void Server::clientHandler(SOCKET client_socket)
 {
-	std::cout << "hello" << std::endl;
-	std::string str = Helper::getStringPartFromSocket(client_socket, 10);
-	std::cout << str << std::endl;
+	Message* currRcvMsg = nullptr;
+	
+	// get the first message code
+	int msgCode = Helper::getMessageTypeCode(client_socket);
+
+	while (msgCode != 0)
+	{
+		currRcvMsg = buildRecieveMessage(client_socket, msgCode);
+		addRecievedMessage(currRcvMsg);
+
+		msgCode = Helper::getMessageTypeCode(client_socket);
+	}
+	/*if (/*the client sends signout message)
+	
+		{
+			currRcvMsg = buildRecieveMessage(client_socket, 0); //In case of the client quitting (299)
+			addRecievedMessage(currRcvMsg);
+		}
+	*/
+	closesocket(client_socket); //Closing the socket
 }
 
 void Server::handleRecievedMessages()
 {
 	//std::cout << "he" << std::endl;
+}
+
+void Server::addRecievedMessage(Message* msg)
+//This function lockes the mutex for the message queue and puts messages in queue 
+{
+	unique_lock<mutex> lck(this->_mtxRecieveMessages);
+
+	this->_queRcvMessages.push(msg); //Put new messages in queue 
+	lck.unlock();
+	this->_msgQueueCondition.notify_all(); //wakes up the thread of handling messsages
+}
+
+Message* Server::buildRecieveMessage(SOCKET sock, int msg)
+//This function creates a message according to the message code of the user. If there is any extra data, the function enters it to a vector.
+//In case of success - the function returns the message of the user
+//In case of failure - the function returns nullptr
+{
+	//bulid the mesasge with the message class and call each handaling functions 
 }
