@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Thread(new ClientThread()).start();
+        //new Thread(new ClientThread()).start();
+        new testing().test();
     }
 
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             EditText editText = (EditText) findViewById(R.id.Message);
             String str = editText.getText().toString();
-            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
+            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
             out.println(str);
             editText.setText("");
         } catch (UnknownHostException e) {
@@ -42,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
     class ClientThread implements Runnable
+=======
+    public class testing
+>>>>>>> 95233ec2372e1cf46d11db4ae5060d7432053d45
     {
-        @Override
-        public void run()
+        public void test()
         {
             //try to open new socket
             try {
@@ -58,4 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }
+
