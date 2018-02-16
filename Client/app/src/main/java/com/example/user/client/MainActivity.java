@@ -15,7 +15,7 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SERVERPORT = 8820;
-    private static final String SERVER_IP = "192.168.1.15";
+    private static final String SERVER_IP = "10.51.242.208";
     private Socket socket;
 
     @Override
@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 
     class ClientThread implements Runnable
     {
